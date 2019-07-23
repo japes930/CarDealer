@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+<div class="container" style="margin: 5rem">
+    <div class="row" style="min-height:80vh;">
+        <div class="col-3" style="border-right:2px solid black">
+            <div th:each="category: ${categories}">
+                <!--<a th:text="${category.type}"></a>-->
+                <a th:text="${category.type}" th:href="@{/viewCategory/{id} (id=${category.id})}"></a>
+            </div>
+        </div>
+        <div class="col-9">
+
+                <h1>Car Listings</h1>
+
+                <!--Add categories to a side bar-->
+                <div th:each="category: ${categories}">
+
+                </div>
+
+                <!--//car is iterating for each-->
+
+
+                    <div th:each="car : ${cars}">
+                        <h2 th:inline="text">[[${car.make}]] [[${car.model}]]</h2>
+                        <h4 th:text="${car.year}"></h4>
+                        <h4 th:inline="text">$[[${car.msrp}]]</h4>
+                        <p th:text="${car.category.type}"></p>
+                        <a th:href="@{/viewCar/{id} (id=${car.id})}">View Car</a>
+                        <a th:href="@{/updateCar/{id} (id=${car.id})}">Update</a>
+                        <a th:href="@{/deleteCar/{id} (id=${car.id})}">Delete Listing</a>
+
+                    </div>
+
+                <a href="/addcar">Add Car to Listing</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

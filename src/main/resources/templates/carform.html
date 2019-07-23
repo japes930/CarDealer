@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Car Form</h1>
+<form action="#" th:action="@{/processcar}" th:object="${car}" method="post">
+
+    <div class="container">
+        <input type="hidden" th:field="*{id}"/>
+        Make: <input type="text" th:field="*{make}"/>
+        Model: <input type="text" th:field="*{model}"/>
+        Year: <input type="text" th:field="*{year}"/>
+        MSRP: <input type="text" th:field="*{msrp}"/>
+
+
+
+        <select th:field="*{category}" multiple>
+            <option th:each="category: ${categories}"
+                    th:text="${category.type}"
+                    th:value="${category.id}"></option>
+        </select>
+    </div>
+
+    <button type="submit">Save Car</button>
+
+</form>
+
+</body>
+</html>

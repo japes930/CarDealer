@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+</head>
+<body>
+
+<h1>Vehicle</h1>
+    <div class="container">
+        <span type="hidden" th:field="${car.id}"/>
+        <a href="/">Listings</a>
+
+        <h3 type="text" th:text="${car.make}"></h3>
+        <h3 type="text" th:text="${car.model}"></h3>
+        <h3 type="text" th:text="${car.year}"></h3>
+        <h3 th:inline="text">$[[${car.msrp}]]</h3>
+        <h3 type="text" th:text="${car.category.type}"></h3>
+        <a th:href="@{/updateCar/{id} (id=${car.id})}">Update</a>
+        <a th:href="@{/deleteCar/{id} (id=${car.id})}">Delete Listing</a>
+
+
+
+    </div>
+</body>
+</html>
