@@ -33,13 +33,13 @@
                         <h4 th:text="${car.year}"></h4>
                         <h4 th:inline="text">$[[${car.msrp}]]</h4>
                         <p th:text="${car.category.type}"></p>
-                        <a th:href="@{/viewCar/{id} (id=${car.id})}">View Car</a>
-                        <a th:href="@{/updateCar/{id} (id=${car.id})}">Update</a>
+                        <a th:href="@{/viewCar/{id} (id=${car.id})}">View Car</a><br/>
+                        <a th:href="@{/updateCar/{id} (id=${car.id})}">Update</a><br/>
                         <a th:href="@{/deleteCar/{id} (id=${car.id})}">Delete Listing</a>
 
                     </div>
 
-                <a href="/addcar">Add Car to Listing</a>
+                <a href="/addcar">Add New Car to Listing</a>
         </div>
     </div>
 
