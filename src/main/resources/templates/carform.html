@@ -15,19 +15,45 @@
             <form action="#" th:action="@{/processcar}" th:object="${car}" method="post">
 
                 <div class="container">
-                    <input type="hidden" th:field="*{id}"/>
-                    Make: <input type="text" th:field="*{make}"/>
-                    Model: <input type="text" th:field="*{model}"/>
-                    Year: <input type="text" th:field="*{year}"/>
-                    MSRP: <input type="text" th:field="*{msrp}"/>
+                    <div class="row">
+                        <div class="col">
+                            <input type="hidden" th:field="*{id}"/>
+                            <div class="form-group">
+                                <label for="carmake">Make</label>
+                                <input class="form-control" id="carmake" type="text" th:field="*{make}"/>
+                            </div>
+                            Make: <input type="text" th:field="*{make}"/>
+                            Model: <input type="text" th:field="*{model}"/>
+                            Year: <input type="text" th:field="*{year}"/>
+                            MSRP: <input type="text" th:field="*{msrp}"/>
 
 
 
-                    <select th:field="*{category}" multiple>
-                        <option th:each="category: ${categories}"
-                                th:text="${category.type}"
-                                th:value="${category.id}"></option>
-                    </select>
+                            <!--Category: <select th:field="*{category}">-->
+                            <!--<option th:each="category: ${categories}"-->
+                                    <!--th:text="${category.type}"-->
+                                    <!--th:value="${category.id}"></option>-->
+                        <!--</select>-->
+
+                            Category: <input type="text" list="cars" th:field="*{category}"/>
+                            <datalist id="cars">
+                                <option th:each="category: ${categories}"
+                                        th:text="${category.type}"
+                                        th:value="${category.id}"></option>
+                            </datalist>
+
+                            <!--Datlist example-->
+                            <!--<input list="encodings" value="" class="col-sm-6 custom-select custom-select-sm">-->
+                            <!--<datalist id="encodings">-->
+                                <!--<option value="ISO-8859-1">ISO-8859-1</option>-->
+                                <!--<option value="cp1252">ANSI</option>-->
+                                <!--<option value="utf8">UTF-8</option>-->
+                            <!--</datalist>-->
+
+
+                        </div>
+                    </div>
+
                 </div>
 
                 <button type="submit">Save Car</button>

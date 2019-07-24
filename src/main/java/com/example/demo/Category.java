@@ -13,7 +13,8 @@ public class Category {
 
     private String type;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    //changed to cascadetype.remove because the car is still tied to category thus cant be deleted
+    @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     public Set<Car> cars;
 
     public Category(){

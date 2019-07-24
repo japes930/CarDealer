@@ -112,9 +112,6 @@ public class HomeController {
         category = new Category();
         category.setType("Coupe");
         categoryRepository.save(category);
-
-
     }
-
 
 }
